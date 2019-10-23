@@ -23,5 +23,5 @@ EXPOSE 6800
 
 WORKDIR /scrapyd
 
-ENTRYPOINT ["python scrapyd/scripts/scrapyd_run.py", "--pidfile="]
+ENTRYPOINT ["python", "scrapyd/scripts/scrapyd_run.py", "--pidfile="]
 
