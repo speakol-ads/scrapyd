@@ -68,7 +68,10 @@ class JsonSqliteDict(MutableMapping):
 	#self.db = {}
 
     def __getitem__(self, key):
-        return self.decode(self.db.hget(self.key, self.encode(key)))
+        if self.db.hexists(self.key):
+            return self.decode(self.db.hget(self.key, self.encode(key)))
+        else:
+            return KeyError(key)
         return self.db[key]
         key = self.encode(key)
         q = "select value from %s where key=?" % self.table
