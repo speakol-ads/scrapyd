@@ -133,7 +133,7 @@ class JsonSqliteDict(MutableMapping):
         return list(self.iteritems())
 
     def encode(self, obj):
-        return sqlite3.Binary(json.dumps(obj).encode('ascii'))
+        return json.dumps(obj).encode('ascii')
 
     def decode(self, obj):
         return json.loads(bytes(obj).decode('ascii'))
