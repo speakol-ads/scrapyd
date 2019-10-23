@@ -10,8 +10,8 @@ import heapq
 from ._deprecate import deprecate_class
 
 
-class JsonSqliteDict(dict):
-    pass
+#class JsonSqliteDict(dict):
+#    pass
 
 class JsonSqlitePriorityQueue(object):
     """SQLite priority queue. It relies on SQLite concurrency support for
@@ -22,10 +22,10 @@ class JsonSqlitePriorityQueue(object):
         self.db = []
 
     def put(self, message, priority=0.0):
-        heapq.heappush(self.db, (priority, message))
+        self.db.append(message)
 
     def pop(self):
-       return heapq.heappop(self.db)
+       return self.db.pop()
 
     def remove(self, func):
         n = 0
@@ -45,19 +45,20 @@ class JsonSqlitePriorityQueue(object):
         return self.db
 
 
-class JsonSqliteDictLegacy(MutableMapping):
+class JsonSqliteDict(MutableMapping):
     """SQLite-backed dictionary"""
 
     def __init__(self, database=None, table="dict"):
-        self.database = database or ':memory:'
-        self.table = table
+        self.db = {}
+	#self.database = database or ':memory:'
+        #self.table = table
         # about check_same_thread: http://twistedmatrix.com/trac/ticket/4040
-        self.conn = sqlite3.connect(self.database, check_same_thread=False)
-        q = "create table if not exists %s (key blob primary key, value blob)" \
-            % table
-        self.conn.execute(q)
+        #self.conn = sqlite3.connect(self.database, check_same_thread=False)
+        #self.conn.execute(q)
+	#self.db = {}
 
     def __getitem__(self, key):
+        return self.db[key]
         key = self.encode(key)
         q = "select value from %s where key=?" % self.table
         value = self.conn.execute(q, (key,)).fetchone()
@@ -66,18 +67,23 @@ class JsonSqliteDictLegacy(MutableMapping):
         raise KeyError(key)
 
     def __setitem__(self, key, value):
+        self.db[key] = value
+        return
         key, value = self.encode(key), self.encode(value)
         q = "insert or replace into %s (key, value) values (?,?)" % self.table
         self.conn.execute(q, (key, value))
         self.conn.commit()
 
     def __delitem__(self, key):
+        del self.db[key]
+        return
         key = self.encode(key)
         q = "delete from %s where key=?" % self.table
         self.conn.execute(q, (key,))
         self.conn.commit()
 
     def __len__(self):
+        return len(self.db)
         q = "select count(*) from %s" % self.table
         return self.conn.execute(q).fetchone()[0]
 
@@ -86,6 +92,8 @@ class JsonSqliteDictLegacy(MutableMapping):
             yield k
 
     def iterkeys(self):
+        return self.db.keys()
+
         q = "select key from %s" % self.table
         return (self.decode(x[0]) for x in self.conn.execute(q))
 
@@ -93,6 +101,7 @@ class JsonSqliteDictLegacy(MutableMapping):
         return list(self.iterkeys())
 
     def itervalues(self):
+        return  self.db.values()
         q = "select value from %s" % self.table
         return (self.decode(x[0]) for x in self.conn.execute(q))
 
@@ -100,6 +109,7 @@ class JsonSqliteDictLegacy(MutableMapping):
         return list(self.itervalues())
 
     def iteritems(self):
+        return self.db.iteritems()
         q = "select key, value from %s" % self.table
         return ((self.decode(x[0]), self.decode(x[1])) for x in self.conn.execute(q))
 

@@ -17,11 +17,13 @@ RUN pip install --upgrade pip && pip install \
     numpy \
     langdetect
 
+WORKDIR /scrapyd
+
 COPY . .
+
+RUN python setup.py install
 
 EXPOSE 6800
 
-WORKDIR /scrapyd
-
-ENTRYPOINT ["python", "scrapyd/scripts/scrapyd_run.py", "--pidfile="]
+ENTRYPOINT ["scrapyd/scripts/scrapyd_run.py", "--pidfile="]
 
