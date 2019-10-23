@@ -1,0 +1,40 @@
+2019-10-23 15:26:10 [scrapy.utils.log] INFO: Scrapy 1.7.3 started (bot: SpeakolCrawler)
+2019-10-23 15:26:10 [scrapy.utils.log] INFO: Versions: lxml 4.4.1.0, libxml2 2.9.9, cssselect 1.1.0, parsel 1.5.2, w3lib 1.21.0, Twisted 19.7.0, Python 3.5.3 (default, Sep 27 2018, 17:25:39) - [GCC 6.3.0 20170516], pyOpenSSL 19.0.0 (OpenSSL 1.1.1d  10 Sep 2019), cryptography 2.8, Platform Linux-4.15.0-30deepin-generic-x86_64-with-Deepin-15.11-stretch
+2019-10-23 15:26:10 [scrapy.crawler] INFO: Overridden settings: {'DNSCACHE_SIZE': 1000, 'HTTPCACHE_IGNORE_HTTP_CODES': [404, 504, 503, 301, 302, 500, 400, 422], 'SPIDER_MODULES': ['SpeakolCrawler.spiders'], 'CONCURRENT_ITEMS': 2000, 'TELNETCONSOLE_ENABLED': False, 'REDIRECT_MAX_TIMES': 3, 'HTTPCACHE_EXPIRATION_SECS': 18000, 'USER_AGENT': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36', 'RETRY_ENABLED': False, 'COOKIES_ENABLED': False, 'CONCURRENT_REQUESTS_PER_DOMAIN': 500, 'NEWSPIDER_MODULE': 'SpeakolCrawler.spiders', 'BOT_NAME': 'SpeakolCrawler', 'CONCURRENT_REQUESTS_PER_IP': 500, 'CONCURRENT_REQUESTS': 2000, 'AUTOTHROTTLE_TARGET_CONCURRENCY': 8, 'HTTPCACHE_POLICY': 'scrapy.extensions.httpcache.RFC2616Policy', 'AUTOTHROTTLE_DEBUG': True, 'DOWNLOAD_DELAY': 0.0001, 'DOWNLOAD_TIMEOUT': 10, 'HTTPCACHE_ENABLED': True, 'HTTPCACHE_GZIP': True, 'LOG_FILE': 'logs/SpeakolCrawler/page_debug/aa558f4cf59811e9bd57485f998d22e9.log', 'MEMUSAGE_LIMIT_MB': 100}
+2019-10-23 15:26:10 [root] DEBUG: checking requirements ...
+2019-10-23 15:26:10 [root] DEBUG: checking for none-installed packages ...
+2019-10-23 15:26:10 [root] DEBUG: ['requests', 'scrapy', 'setuptools', 'sumy', 'langdetect', 'nltk', 'redis', 'Pillow', 'numpy', 'psycopg2-binary', 'sentry-sdk', 'scrapy-crawlera']
+2019-10-23 15:26:10 [root] DEBUG: ['requests', 'scrapy', 'setuptools', 'sumy', 'langdetect', 'nltk', 'redis', 'Pillow', 'numpy', 'psycopg2-binary', 'sentry-sdk', 'scrapy-crawlera']
+2019-10-23 15:26:10 [root] DEBUG: ['requests', 'scrapy', 'setuptools', 'sumy', 'langdetect', 'nltk', 'redis', 'Pillow', 'numpy', 'psycopg2-binary', 'sentry-sdk', 'scrapy-crawlera']
+2019-10-23 15:26:10 [root] DEBUG: this is a list of installed packages ...
+2019-10-23 15:26:10 [root] DEBUG: ['scrapyd', 'pip', 'zope.interface', 'w3lib', 'twisted', 'sumy', 'singledispatch', 'service-identity', 'scrapyd-client', 'scrapy', 'redis', 'queuelib', 'pyopenssl', 'pyhamcrest', 'pydispatcher', 'pycparser', 'pycountry', 'pyasn1-modules', 'parsel', 'numpy', 'nltk', 'lxml', 'langdetect', 'incremental', 'idna', 'hyperlink', 'docopt', 'cssselect', 'cryptography', 'constantly', 'cffi', 'breadability', 'automat', 'attrs', 'wheel', 'urllib3', 'six', 'setuptools', 'secretstorage', 'requests', 'reportlab', 'pyxdg', 'pysmbc', 'pygobject', 'pycups', 'pycrypto', 'pyasn1', 'ptyprocess', 'pillow', 'pexpect', 'onboard', 'keyrings.alt', 'keyring', 'cupshelpers', 'chardet']
+2019-10-23 15:26:10 [root] DEBUG: this is a list of installed packages ...
+2019-10-23 15:26:10 [root] DEBUG: ['scrapyd', 'pip', 'zope.interface', 'w3lib', 'twisted', 'sumy', 'singledispatch', 'service-identity', 'scrapyd-client', 'scrapy', 'redis', 'queuelib', 'pyopenssl', 'pyhamcrest', 'pydispatcher', 'pycparser', 'pycountry', 'pyasn1-modules', 'parsel', 'numpy', 'nltk', 'lxml', 'langdetect', 'incremental', 'idna', 'hyperlink', 'docopt', 'cssselect', 'cryptography', 'constantly', 'cffi', 'breadability', 'automat', 'attrs', 'wheel', 'urllib3', 'six', 'setuptools', 'secretstorage', 'requests', 'reportlab', 'pyxdg', 'pysmbc', 'pygobject', 'pycups', 'pycrypto', 'pyasn1', 'ptyprocess', 'pillow', 'pexpect', 'onboard', 'keyrings.alt', 'keyring', 'cupshelpers', 'chardet']
+2019-10-23 15:26:10 [root] DEBUG: ['requests', 'scrapy', 'setuptools', 'sumy', 'langdetect', 'nltk', 'redis', 'Pillow', 'numpy', 'psycopg2-binary', 'sentry-sdk', 'scrapy-crawlera']
+2019-10-23 15:26:10 [root] DEBUG: installing psycopg2-binary ...
+2019-10-23 15:26:13 [root] DEBUG: Collecting psycopg2-binary
+
+2019-10-23 15:26:13 [root] DEBUG: installing sentry-sdk ...
+2019-10-23 15:26:14 [root] DEBUG: Collecting sentry-sdk
+
+2019-10-23 15:26:14 [root] DEBUG: installing scrapy-crawlera ...
+2019-10-23 15:26:15 [root] DEBUG: Collecting scrapy-crawlera
+
+2019-10-23 15:26:15 [root] DEBUG: checking for nltk data ...
+2019-10-23 15:26:16 [root] DEBUG: downloading required nltk resources
+2019-10-23 15:26:35 [scrapy.crawler] INFO: Received SIGINT, shutting down gracefully. Send again to force 
+2019-10-23 15:26:55 [scrapy.middleware] INFO: Enabled extensions:
+['SpeakolCrawler.extensions.CheckDepsExtension']
+2019-10-23 15:26:55 [twisted] CRITICAL: Unhandled error in Deferred:
+2019-10-23 15:26:55 [twisted] CRITICAL: 
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/twisted/internet/defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "/usr/local/lib/python3.5/dist-packages/scrapy/crawler.py", line 85, in crawl
+    self.spider = self._create_spider(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/scrapy/crawler.py", line 108, in _create_spider
+    return self.spidercls.from_crawler(self, *args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/scrapy/spiders/__init__.py", line 50, in from_crawler
+    spider = cls(*args, **kwargs)
+  File "/tmp/SpeakolCrawler-4-2dt6z05t.egg/SpeakolCrawler/spiders/BaseSpider.py", line 43, in __init__
+SpeakolCrawler.exceptions.EmptyTargetSpecified.EmptyTargetSpecified: You must specify at least one `target`

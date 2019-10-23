@@ -13,7 +13,7 @@ with open(join(dirname(__file__), 'scrapyd/VERSION')) as f:
     version = f.read().strip()
 
 setup_args = {
-    'name': 'scrapyd',
+    'name': 'spklscrapyd',
     'version': version,
     'url': 'https://github.com/scrapy/scrapyd',
     'description': 'A service for running Scrapy spiders, with an HTTP API',

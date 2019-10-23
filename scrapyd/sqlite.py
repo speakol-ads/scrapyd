@@ -6,11 +6,46 @@ except ImportError:
     from collections import MutableMapping
 import six
 
-
+import heapq
 from ._deprecate import deprecate_class
 
 
-class JsonSqliteDict(MutableMapping):
+class JsonSqliteDict(dict):
+    pass
+
+class JsonSqlitePriorityQueue(object):
+    """SQLite priority queue. It relies on SQLite concurrency support for
+    providing atomic inter-process operations.
+    """
+
+    def __init__(self, database=None, table="queue"):
+        self.db = []
+
+    def put(self, message, priority=0.0):
+        heapq.heappush(self.db, (priority, message))
+
+    def pop(self):
+       return heapq.heappop(self.db)
+
+    def remove(self, func):
+        n = 0
+        for row in self.db:
+            if func(row[1]):
+                self.db.remove(row)
+                n += 1
+        return n
+
+    def clear(self):
+        self.db = []
+
+    def __len__(self):
+        return len(self.db)
+
+    def __iter__(self):
+        return self.db
+
+
+class JsonSqliteDictLegacy(MutableMapping):
     """SQLite-backed dictionary"""
 
     def __init__(self, database=None, table="dict"):
@@ -77,8 +112,7 @@ class JsonSqliteDict(MutableMapping):
     def decode(self, obj):
         return json.loads(bytes(obj).decode('ascii'))
 
-
-class JsonSqlitePriorityQueue(object):
+class JsonSqlitePriorityQueueLegacy(object):
     """SQLite priority queue. It relies on SQLite concurrency support for
     providing atomic inter-process operations.
     """
