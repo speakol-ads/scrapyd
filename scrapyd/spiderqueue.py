@@ -2,7 +2,7 @@ from zope.interface import implementer
 
 from scrapyd.interfaces import ISpiderQueue
 from scrapyd.sqlite import JsonSqlitePriorityQueue
-
+import logging
 
 @implementer(ISpiderQueue)
 class SqliteSpiderQueue(object):
@@ -11,12 +11,28 @@ class SqliteSpiderQueue(object):
         self.q = JsonSqlitePriorityQueue(database, table)
 
     def add(self, name, priority=0.0, **spider_args):
+        logging.debug("#####################")
+        logging.debug("#####################")
+        logging.debug("#####################")
+        logging.debug("#####################")
+        logging.debug("#####################")
+        logging.debug("#####################")
+        logging.debug("#####################")
+        logging.debug("#####################")
         d = spider_args.copy()
         d['name'] = name
         self.q.put(d, priority=priority)
+        logging.debug(len(self.q))
+        logging.debug("//#################")
+        logging.debug("//#################")
+        logging.debug("//#################")
 
     def pop(self):
-        return self.q.pop()
+        ret = self.q.pop()
+        logging.debug("//#################")
+        logging.debug(ret)
+        logging.debug("//#################")
+        return ret
 
     def count(self):
         return len(self.q)
