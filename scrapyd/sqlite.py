@@ -21,7 +21,7 @@ class JsonSqlitePriorityQueue(object):
 
     def __init__(self, database=None, table="queue"):
         self.key = "spklscrapyd.pqueue"
-        self.db = redis.StrictRedis(host='crawling-service-redis.default.svc.cluster.local', port=6379,
+        self.db = redis.StrictRedis(host='172.31.14.231', port=30037,password='speakol.inline.redis',
                                             charset="utf-8", decode_responses=True,
                                             db=13) 
 
@@ -57,7 +57,7 @@ class JsonSqliteDict(MutableMapping):
 
     def __init__(self, database=None, table="dict"):
         self.key = "spklscrapyd.sqlitedict"
-        self.db = redis.StrictRedis(host='crawling-service-redis.default.svc.cluster.local', port=6379,
+        self.db = redis.StrictRedis(host='172.31.14.231', port=30037, password='speakol.inline.redis',
                                             charset="utf-8", decode_responses=True,
                                             db=13) 
 	#self.database = database or ':memory:'
